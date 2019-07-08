@@ -70,9 +70,8 @@
   - xorg-libxpm  # [linux]
   - xrootd
   - xz
-  # FIXME: The generated allDict.cxx.pch is dependent on versin of the C++ headers used
-  # As it is shipped in the macOS binaries we have to use the same one as in the compilers package
-  - libcxx =4  # [osx]
+  # FIXME: The generated allDict.cxx.pch is dependent on version of the C++ headers used
+  - libcxx =4
 {% endmacro -%}
 
 {% macro test_commands() %}
@@ -157,7 +156,7 @@ outputs:
         - xorg-libxft  # [linux]
         - xorg-libxpm  # [linux]
         # FIXME: Required to ensure a consistent etc/allDict.cxx.pch
-        - libcxx =4  # [osx]
+        - libcxx =4
     test:
       commands:
         - echo "Testing is performed in the root_base and root outputs"
@@ -167,8 +166,6 @@ outputs:
     build:
       number: {{ build_number }}
       skip: True  # [win]
-      # FIXME: This script should be replaced with a more robust way of distributing the PCH
-      post-link: gen-pch-post-link.sh  # [not osx]
       script:
         - find ${PREFIX}/bin -type f -maxdepth 1 > ${SRC_DIR}/initial-filelist.txt
         - cp -rp ${PREFIX}/bin ${SRC_DIR}/initial-bin-dir
@@ -183,7 +180,7 @@ outputs:
         - {{ pin_subpackage('root_base', max_pin='x.x.x') }}
       ignore_prefix_files:
         # FIXME: Figure out how to correct the paths in the PCH
-        - etc/allDict.cxx.pch  # [osx]
+        - etc/allDict.cxx.pch
       # Taken from "conda render ./recipe/ -m .ci_support/osx_python3.7.yaml"
       # Sorted and commented run_exports that we want to keep
       # TODO: This will need updating occasionally
@@ -215,7 +212,7 @@ outputs:
       host: {{- host_dependencies()|replace("\n  ", "\n        ") }}
       run:
         # FIXME: Required to ensure a consistent etc/allDict.cxx.pch
-        - libcxx =4  # [osx]
+        - libcxx =4
       run_constrained:
         # Items listed here conflict with ROOT
         # FIXME Add support in ROOT for building with an external cling
