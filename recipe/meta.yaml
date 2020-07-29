@@ -576,6 +576,15 @@ outputs:
         # This command only works if the compilers are available
         - root -l -b -q -x test.cpp++
 
+{%- if "ROOT_CONDA_BUILD_NUMBER" in os.environ %}
+  # Add a metapackage called root-nightly
+  - name: root-nightly
+    version: {{ version }}
+    requirements:
+      run:
+        - {{ pin_subpackage('root', exact=True) }}
+{%- endif %}
+
 about:
   home: https://root.cern/
   license: LGPL-2.1-only
