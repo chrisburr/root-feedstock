@@ -86,6 +86,7 @@ cmake -LAH \
     -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
     -DCMAKE_INSTALL_RPATH="${PREFIX}/lib" \
     -DCMAKE_INSTALL_NAME_DIR="${PREFIX}/lib" \
+    -DCMAKE_INSTALL_PYTHONDIR="${SP_DIR}" \
     -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
     -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=ON \
     -DCLING_BUILD_PLUGINS=OFF \
@@ -146,17 +147,6 @@ for suffix in sh csh fish; do
     chmod +x "${PREFIX}/bin/thisroot.${suffix}"
 done
 
-# Symlink the python components in to the site packages directory
-mkdir -p "${SP_DIR}"
-ln -s "${PREFIX}/lib/JupyROOT/" "${SP_DIR}/"
-ln -s "${PREFIX}/lib/ROOT/" "${SP_DIR}/"
-ln -s "${PREFIX}/lib/cppyy/" "${SP_DIR}/"
-ln -s "${PREFIX}/lib/cppyy_backend/" "${SP_DIR}/"
-ln -s "${PREFIX}/lib/JsMVA/" "${SP_DIR}/"
-ln -s "${PREFIX}/lib/cmdLineUtils.py" "${SP_DIR}/"
-ln -s "${PREFIX}/lib"/libJupyROOT*.so "${SP_DIR}/"
-ln -s "${PREFIX}/lib"/libROOTPythonizations*.so "${SP_DIR}/"
-ln -s "${PREFIX}/lib"/libcppyy*.so "${SP_DIR}/"
 # Check PyROOT is roughly working
 python -c "import ROOT"
 
