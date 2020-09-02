@@ -238,6 +238,7 @@ outputs:
         - zstd
       run:
         - {{ pin_compatible('numpy') }}
+        - pandas
         - cfitsio
         - fftw
         - gdk-pixbuf
