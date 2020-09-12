@@ -55,7 +55,6 @@ source:
     - patches/root-x.xx.xx_cling-runtime-sysroot.patch
     - patches/root-x.xx.xx-copy-abspath-headers.patch  # [osx]
     - patches/root-x.xx.xx-osx-remove-hardcoded-sysroot.patch  # [osx]
-    - patches/0001-Create-symlink-to-libJupyROOTX_Y.so-when-using-CMAKE.patch
 
 build:
   number: {{ build_number }}
