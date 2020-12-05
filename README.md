@@ -5,12 +5,16 @@ Home: https://root.cern/
 
 Package license: LGPL-2.1-only
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/root-feedstock/blob/master/LICENSE.txt)
 
 Summary: ROOT is a modular scientific software toolkit. It provides all the functionalities needed to deal with big data
 processing, statistical analysis, visualisation and storage. It is mainly written in C++ but integrated with other
 languages such as Python and R.
 
+
+Development: https://github.com/root-project/root/
+
+Documentation: https://root.cern/documentation
 
 Almost everything in ROOT should be supported in this Conda package; ROOT was built with lots of options turned
 on. Here are a few things to try:
@@ -110,6 +114,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-root-green.svg)](https://anaconda.org/conda-forge/root) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/root.svg)](https://anaconda.org/conda-forge/root) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/root.svg)](https://anaconda.org/conda-forge/root) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/root.svg)](https://anaconda.org/conda-forge/root) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-root--binaries-green.svg)](https://anaconda.org/conda-forge/root-binaries) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/root-binaries.svg)](https://anaconda.org/conda-forge/root-binaries) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/root-binaries.svg)](https://anaconda.org/conda-forge/root-binaries) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/root-binaries.svg)](https://anaconda.org/conda-forge/root-binaries) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-root--dependencies-green.svg)](https://anaconda.org/conda-forge/root-dependencies) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/root-dependencies.svg)](https://anaconda.org/conda-forge/root-dependencies) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/root-dependencies.svg)](https://anaconda.org/conda-forge/root-dependencies) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/root-dependencies.svg)](https://anaconda.org/conda-forge/root-dependencies) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-root--nightly-green.svg)](https://anaconda.org/conda-forge/root-nightly) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/root-nightly.svg)](https://anaconda.org/conda-forge/root-nightly) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/root-nightly.svg)](https://anaconda.org/conda-forge/root-nightly) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/root-nightly.svg)](https://anaconda.org/conda-forge/root-nightly) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-root_base-green.svg)](https://anaconda.org/conda-forge/root_base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/root_base.svg)](https://anaconda.org/conda-forge/root_base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/root_base.svg)](https://anaconda.org/conda-forge/root_base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/root_base.svg)](https://anaconda.org/conda-forge/root_base) |
 
 Installing root
@@ -121,10 +126,10 @@ Installing `root` from the `conda-forge` channel can be achieved by adding `cond
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `root, root-binaries, root-dependencies, root_base` can be installed with:
+Once the `conda-forge` channel has been enabled, `root, root-binaries, root-dependencies, root-nightly, root_base` can be installed with:
 
 ```
-conda install root root-binaries root-dependencies root_base
+conda install root root-binaries root-dependencies root-nightly root_base
 ```
 
 It is possible to list all of the versions of `root` available on your platform with:
