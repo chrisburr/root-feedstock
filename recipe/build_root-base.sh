@@ -83,6 +83,12 @@ if [ -n "${ROOT_CONDA_RUN_GTESTS+x}" ]; then
     export LD_LIBRARY_PATH=$PREFIX/lib
 fi
 
+CMAKE_PLATFORM_FLAGS+=("-DCMAKE_CXX_FLAGS='-march=haswell'")
+CMAKE_PLATFORM_FLAGS+=("-Dveccore=ON")
+CMAKE_PLATFORM_FLAGS+=("-Dbuiltin_veccore=ON")
+CMAKE_PLATFORM_FLAGS+=("-Dvc=ON")
+CMAKE_PLATFORM_FLAGS+=("-Dbuiltin_vc=ON")
+
 cmake -LAH \
     "${CMAKE_PLATFORM_FLAGS[@]}" \
     -DCMAKE_BUILD_TYPE=Release \

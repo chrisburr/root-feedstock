@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+import numba
 import ROOT
 
 @ROOT.Numba.Declare(["float"], "float")
