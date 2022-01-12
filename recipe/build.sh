@@ -136,10 +136,6 @@ else
 
     # Cling needs some minor patches to the LLVM sources, hackily apply them rather than rebuilding LLVM
     sed -i "s@LLVM_LINK_LLVM_DYLIB yes@LLVM_LINK_LLVM_DYLIB no@g" "${Clang_DIR}/lib/cmake/llvm/LLVMConfig.cmake"
-    cd "${Clang_DIR}"
-    patch -p1 < "${RECIPE_DIR}/llvm-patches/0001-Fix-the-compilation.patch"
-    patch -p1 < "${RECIPE_DIR}/llvm-patches/0002-Make-datamember-protected.patch"
-    cd -
 fi
 
 # Enable some vectorisation options
