@@ -47,6 +47,7 @@ source:
     - patches/0020-feat-use-ROOT-s-own-libc.modulemap-on-macOS-instead-.patch
     - patches/0021-fix-Set-default-visibility-on-dictionary-targets-for.patch
     - patches/0022-fix-Set-CXX_VISIBILITY_PRESET-hidden-for-ClingUtils.patch
+    - patches/0023-cling-Anchor-the-interpreter-s-clang-driver-on-ROOTS.patch
 build:
   number: ${{ build_number }}
   skip:
