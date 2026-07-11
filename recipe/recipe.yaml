@@ -1,7 +1,7 @@
 context:
   name: root
   tag_name: 6-38-04
-  build_number: 6
+  build_number: 7
   clang_version: 20.1.8
   clang_patches_version: root_63800
   builtin_clang: false
@@ -156,7 +156,7 @@ outputs:
         - vdt
         - python
         - numpy
-        - xrootd
+        - libxrootd-devel
         - liblzma-devel
         # FIXME: The generated allDict.cxx.pch is dependent on version of the C++ headers used
         - xxhash
