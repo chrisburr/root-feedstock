@@ -1,7 +1,7 @@
 context:
   name: root
   tag_name: 6-38-04
-  build_number: 6
+  build_number: 7
   clang_version: 20.1.8
   clang_patches_version: root_63800
   builtin_clang: false
@@ -47,6 +47,8 @@ source:
     - patches/0020-feat-use-ROOT-s-own-libc.modulemap-on-macOS-instead-.patch
     - patches/0021-fix-Set-default-visibility-on-dictionary-targets-for.patch
     - patches/0022-fix-Set-CXX_VISIBILITY_PRESET-hidden-for-ClingUtils.patch
+    - patches/0023-cling-Anchor-the-interpreter-s-clang-driver-on-ROOTS.patch
+    - patches/0024-cmake-Quote-list-valued-cache-variable-in-root-conf.patch
 build:
   number: ${{ build_number }}
   skip:
@@ -156,7 +158,7 @@ outputs:
         - vdt
         - python
         - numpy
-        - xrootd
+        - libxrootd-devel
         - liblzma-devel
         # FIXME: The generated allDict.cxx.pch is dependent on version of the C++ headers used
         - xxhash
@@ -285,6 +287,11 @@ outputs:
     requirements:
       run_exports:
         - root_cxx_standard ==${{ root_cxx_std }}
+    tests:
+      # Marker package: it only carries the C++ standard as a version pin,
+      # so installing it cleanly is the only thing to check.
+      - script:
+          - exit 0
 
 about:
   license: LGPL-2.1-only
