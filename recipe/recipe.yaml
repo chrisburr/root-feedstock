@@ -269,7 +269,10 @@ outputs:
       version: ${{ root_cxx_std }}
     build:
       noarch: generic
-      string: ${{ root_cxx_std }}
+      # Include the build number so updated marker artifacts can be published;
+      # the original root_cxx_standard-<std>-<std> filenames are immutable and
+      # predate the run_constraints below.
+      string: ${{ root_cxx_std }}_${{ build_number }}
       variant:
         # Ensures conda-smithy splits linux-64 CI jobs per Python version.
         # Without this, the noarch output drops `python` from the intersection
@@ -277,6 +280,14 @@ outputs:
         use_keys:
           - python
     requirements:
+      run_constraints:
+        # root_base builds older than 6.36.08 predate the C++-standard variant
+        # split and ignore this marker entirely. Without this floor, solvers
+        # prefer those ancient track-feature-free builds over the down-prioritized
+        # non-default variants when a specific standard is requested, e.g.
+        # https://github.com/prefix-dev/pixi/issues/6647. The same constraint is
+        # applied to the original marker artifacts via conda-forge-repodata-patches.
+        - root_base >=6.36.8
       run_exports:
         - root_cxx_standard ==${{ root_cxx_std }}
     tests:
